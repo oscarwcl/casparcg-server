@@ -103,8 +103,6 @@ struct Decoder
 
         FF(avcodec_parameters_to_context(ctx.get(), stream->codecpar));
 
-        FF(av_opt_set_int(ctx.get(), "refcounted_frames", 1, 0));
-
         int numThreads = 1;
         if (codec->capabilities & AV_CODEC_CAP_AUTO_THREADS) {
             numThreads = 0;
