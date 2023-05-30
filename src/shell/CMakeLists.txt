@@ -84,9 +84,9 @@ if (MSVC)
 else ()
 	target_link_libraries(casparcg
 		${Boost_LIBRARIES}
-		${TBB_LIBRARIES}
-		${TBB_MALLOC_LIBRARIES}
-		${TBB_MALLOC_PROXY_LIBRARIES}
+		TBB::tbb
+		TBB::tbbmalloc
+		TBB::tbbmalloc_proxy
 		${SFML_LIBRARIES}
 		${GLEW_LIBRARIES}
 		OpenGL::OpenGL
