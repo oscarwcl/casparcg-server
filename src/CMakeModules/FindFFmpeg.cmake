@@ -63,7 +63,7 @@ macro(find_component _component _pkgconfig _library _header)
      # in the FIND_PATH() and FIND_LIBRARY() calls
      find_package(PkgConfig)
      if (PKG_CONFIG_FOUND)
-       pkg_check_modules(${_component} ${_pkgconfig})
+       pkg_check_modules(PC_LIB${_component} ${_pkgconfig})
      endif ()
   endif (NOT WIN32)
 
@@ -81,8 +81,8 @@ macro(find_component _component _pkgconfig _library _header)
       ${PC_LIB${_component}_LIBRARY_DIRS}
   )
 
-  set(${_component}_DEFINITIONS  ${PC_${_component}_CFLAGS_OTHER} CACHE STRING "The ${_component} CFLAGS.")
-  set(${_component}_VERSION      ${PC_${_component}_VERSION}      CACHE STRING "The ${_component} version number.")
+  set(${_component}_DEFINITIONS  ${PC_LIB${_component}_CFLAGS_OTHER} CACHE STRING "The ${_component} CFLAGS.")
+  set(${_component}_VERSION      ${PC_LIB${_component}_VERSION}      CACHE STRING "The ${_component} version number.")
 
   set_component_found(${_component})
 
